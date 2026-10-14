@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: lisa-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-pro
+      - key: AUTHORIZED_PHONE_NUMBER
+        sync: false
+      - key: MASTER_PIN_HASH
+        sync: false
+      - key: EVOLUTION_API_BASE_URL
+        sync: false
+      - key: EVOLUTION_API_KEY
+        value: lisa_secret_evolution_key
+      - key: EVOLUTION_INSTANCE_NAME
+        value: lisa
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        value: 21m00Tcm4TlvDq8ikWAM
+      - key: REDIS_HOST
+        sync: false
+      - key: REDIS_PORT
+        value: 6379
+      - key: REDIS_PASSWORD
+        sync: false
+      - key: QDRANT_HOST
+        sync: false
+      - key: QDRANT_PORT
+        value: 6333
+      - key: QDRANT_API_KEY
+        sync: false

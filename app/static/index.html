@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisa – Executive AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-logo">L</div>
+      <div class="brand-text">
+        <h1>Project Lisa</h1>
+        <span>Autonomous Executive AI</span>
+      </div>
+    </div>
+    <div class="header-badges">
+      <div class="status-badge" id="modelStatus">
+        <div class="status-dot"></div>
+        <span>Model: Gemini Pro Active</span>
+      </div>
+      <div class="status-badge" id="whatsappStatus">
+        <div class="status-dot"></div>
+        <span>WhatsApp: Connected</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main class="main-layout">
+    
+    <!-- Left: Lisa's Visual Model & Live Speech Subtitles -->
+    <section class="avatar-section">
+      <div class="avatar-container" id="avatarContainer">
+        <!-- Lisa's Official Visual Model -->
+        <img src="/static/assets/lisa_avatar.jpg" alt="Lisa AI Model" class="avatar-image" id="avatarImage">
+        
+        <!-- Hologram HUD Overlay -->
+        <div class="hologram-hud">
+          <div class="hud-ring" id="hudRing">
+            <div class="soundwave">
+              <div class="soundwave-bar"></div>
+              <div class="soundwave-bar"></div>
+              <div class="soundwave-bar"></div>
+              <div class="soundwave-bar"></div>
+              <div class="soundwave-bar"></div>
+            </div>
+            <span class="speaking-indicator-text" id="statusText">Standing by</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Speech Bubble -->
+      <div class="speech-bubble" id="speechBubble">
+        <div class="speech-bubble-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Lisa Speaking
+        </div>
+        <div class="speech-bubble-text" id="bubbleText">
+          "আমি প্রস্তুত। আপনি কি এখন Phase 1 (ফোল্ডার কাঠামো, requirements.txt ও docker-compose.yml) তৈরি করা দিয়ে শুরু করতে চান?"
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Executive Interaction Console -->
+    <section class="controls-section">
+      
+      <div class="panel-card">
+        <div class="panel-title">
+          <span>Executive Interaction Console</span>
+          <span style="font-size: 0.75rem; color: var(--accent-cyan);">HITL Secured</span>
+        </div>
+
+        <!-- Chat Stream -->
+        <div class="chat-container" id="chatContainer">
+          <div class="msg lisa">
+            Hello Boss. I am Lisa, your personal executive AI assistant. How may I direct our operations today?
+          </div>
+        </div>
+
+        <!-- Input Bar with Mic & Send -->
+        <div class="input-group">
+          <button class="mic-btn" id="micBtn" title="Hold to Speak">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+          </button>
+          <input type="text" class="text-input" id="userInput" placeholder="Ask Lisa or give executive command..." />
+          <button class="btn" id="sendBtn">
+            <span>Send</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+
+        <!-- Quick Autonomous Action Chips -->
+        <div class="quick-actions">
+          <div class="chip" onclick="sendQuickAction('Schedule a strategic marketing review for tomorrow at 3 PM')">📅 Schedule Review</div>
+          <div class="chip" onclick="sendQuickAction('Boost our latest product post on Meta with a $50 budget')">🚀 Boost Meta Ad</div>
+          <div class="chip" onclick="sendQuickAction('Search the web for latest AI agent advancements today')">🌐 Web Search</div>
+          <div class="chip" onclick="sendQuickAction('How do you look, Lisa?')">✨ Who are you?</div>
+        </div>
+      </div>
+
+      <!-- System Credentials & Gateway Status Card -->
+      <div class="panel-card">
+        <div class="panel-title">
+          <span>System & Visual Model Pipeline</span>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+          <p>• <strong>Visual Model:</strong> Executive AI Avatar (Active & Connected)</p>
+          <p>• <strong>Voice Synthesis:</strong> ElevenLabs Multilingual (Voice: Rachel)</p>
+          <p>• <strong>Cognitive Engine:</strong> Google Gemini Pro + Qdrant Vector Memory</p>
+          <p>• <strong>HITL Security:</strong> Bcrypt 4-digit PIN verification for financial operations</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Audio Player for Voice Output -->
+  <audio id="voicePlayer" style="display: none;"></audio>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
